@@ -14,6 +14,10 @@ public class LocalLoginTest {
     @BeforeMethod
     public void setUp() {
     	ChromeOptions options = new ChromeOptions();
+        String chromeBinary = System.getenv("CHROME_BIN");
+if (chromeBinary != null && !chromeBinary.isBlank()) {
+    options.setBinary(chromeBinary);
+}
     	options.addArguments("--headless=new");
     	options.addArguments("--no-sandbox");
     	options.addArguments("--disable-dev-shm-usage");
